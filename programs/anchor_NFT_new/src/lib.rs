@@ -105,7 +105,6 @@ pub mod anchor_nft_new_v1 {
         );
         token::mint_to(cpi_ctx, 1)?;
 
-        // ✨ FIX: Use the `authority` account as the collection authority, not the `payer`.
         VerifyCollectionV1CpiBuilder::new(&ctx.accounts.token_metadata_program.to_account_info())
             .metadata(&ctx.accounts.nft_metadata.to_account_info())
             .collection_metadata(&ctx.accounts.collection_metadata.to_account_info())
